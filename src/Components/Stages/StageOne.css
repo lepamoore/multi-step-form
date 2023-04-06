@@ -1,0 +1,67 @@
+input, label {
+    display: block;
+}
+
+#StageOneWrapper {
+    min-height: 50%;
+    border-radius: 10px;
+    background-color: #FFF;
+    width: 90%;
+    position: absolute;
+    top: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#StageOneWrapper * {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#StageOneWrapper form * {
+    width: 100%;
+}
+
+#StageOneHeading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #022959;
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+}
+
+#StageOneParagraph {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #9699AA;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+}
+
+.StageOnelabels {
+    color: #022959;
+    font-size: 12px;
+}
+
+.StageOneinputs {
+    margin-bottom: 1rem;
+    height: 40px;
+    padding: 0 1rem;
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+    border: 1px solid #D6D9E6;
+    border-radius: 4px;
+}
+
+.StageOneinputs::placeholder {
+    font-size: 15px;
+    font-weight: 500;
+    color: #9699AA;
+}
+
+form:last-child {
+    margin-bottom: 2.5rem;
+}

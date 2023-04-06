@@ -1,0 +1,37 @@
+#TopbarWrapper {
+    height: 25vh;
+    min-height: 166.75px;
+    background-image: url(../../assets/images/bg-sidebar-mobile.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    display: flex;
+    height: 15vh;
+    min-height: 100.05px;
+    width: 50%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.numberDiv {
+    border: 1px solid white;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#selected {
+    background-color: #BEE2FD;
+    border: 1px solid #BEE2FD;
+    color: #022959;
+}
