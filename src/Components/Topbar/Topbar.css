@@ -28,9 +28,10 @@
     color: white;
     font-size: 14px;
     font-weight: 700;
+    transition: all 1s;
 }
 
-#selected {
+#stageOneBanner {
     background-color: #BEE2FD;
     border: 1px solid #BEE2FD;
     color: #022959;

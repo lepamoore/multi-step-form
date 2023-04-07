@@ -1,0 +1,51 @@
+.PlanToSelectWrapper {
+    max-height: 9.5vh; /* 12vh when yearly  */
+    border: 1px solid #D6D9E6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+    transition: all 1s;
+}
+
+.planName {
+    font-weight: 500;
+    font-size: 16px;
+    color: #022959;
+    transition: all 1s;
+    margin: 0;
+}
+
+.planPrice {
+    font-weight: 400;
+    font-size: 14px;
+    color: #9699AA;
+    margin: 5px 0 0 0;
+    transition: all 1s;
+}
+
+.planSvg {
+    margin: 1rem;
+}
+
+.freeMonths {
+    color: #022959;
+    font-weight: 400;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+}
+
+.planDetailsContainer {
+    width: 100%;
+}
+
+.ghostDivs {
+    display: none;
+}
+
+.allDetailsContainer {
+    margin: .75rem 0;
+}

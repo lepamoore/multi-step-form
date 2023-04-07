@@ -2,7 +2,8 @@ import React from "react";
 import './Background.css';
 import Topbar from "../Topbar/Topbar";
 import Botbar from "../Botbar/Botbar";
-import StageOne from "../Stages/StageOne";
+import StageOne from "../Stages/StageOne/StageOne";
+import StageTwo from '../Stages/StageTwo/StageTwo';
 
 class Background extends React.Component {
     constructor(props) {
@@ -18,9 +19,16 @@ class Background extends React.Component {
                     handleNameChange={this.props.handleNameChange}
                     handleEmailChange={this.props.handleEmailChange}
                     handlePhoneChange={this.props.handlePhoneChange}
+                    name={this.props.name}
+                    email={this.props.email}
+                    phone={this.props.phone}
                     />;
-        } else {
-            return;
+        } else if(this.props.stage === 2) {
+            return <StageTwo 
+                    handlePlanSelect={this.props.handlePlanSelect}
+                    handleBillingCheckbox={this.props.handleBillingCheckbox} 
+                    plan={this.props.plan}
+                    />;
         }
     }
 

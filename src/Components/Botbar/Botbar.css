@@ -17,10 +17,11 @@
     color: #9699AA;
     font-size: 14px;
     font-weight: 500;
+    transition: all 1s;
 }
 
 #BotbarButtonNext {
-    padding: .75rem 1rem;
+    padding: .9rem 1rem;
     margin: 1rem;
     border: none;
     border-radius: 5px;
