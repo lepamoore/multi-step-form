@@ -7,18 +7,28 @@ import StageOne from "../Stages/StageOne";
 class Background extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            stage: 1
-        };
 
         this.stageToRender = this.stageToRender.bind(this);
+        this.prevButtonVisible = this.prevButtonVisible.bind(this);
     }
 
     stageToRender() {
-        if(this.state.stage === 1) {
-            return <StageOne />;
+        if(this.props.stage === 1) {
+            return <StageOne 
+                    handleNameChange={this.props.handleNameChange}
+                    handleEmailChange={this.props.handleEmailChange}
+                    handlePhoneChange={this.props.handlePhoneChange}
+                    />;
         } else {
             return;
+        }
+    }
+
+    prevButtonVisible() {
+        if(this.props.stage > 1) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -27,7 +37,11 @@ class Background extends React.Component {
             <div id="BackgroundWrapper">
                 <Topbar />
                 {this.stageToRender()}
-                <Botbar />
+                <Botbar 
+                increaseStage={this.props.increaseStage}
+                decreaseStage={this.props.decreaseStage}
+                prevButtonVisible={this.prevButtonVisible()}
+                />
             </div>
         );
     }
