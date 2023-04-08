@@ -4,6 +4,7 @@ import Topbar from "../Topbar/Topbar";
 import Botbar from "../Botbar/Botbar";
 import StageOne from "../Stages/StageOne/StageOne";
 import StageTwo from '../Stages/StageTwo/StageTwo';
+import StageThree from "../Stages/StageThree/StageThree";
 
 class Background extends React.Component {
     constructor(props) {
@@ -13,22 +14,42 @@ class Background extends React.Component {
         this.prevButtonVisible = this.prevButtonVisible.bind(this);
     }
 
+   
+
     stageToRender() {
-        if(this.props.stage === 1) {
-            return <StageOne 
-                    handleNameChange={this.props.handleNameChange}
-                    handleEmailChange={this.props.handleEmailChange}
-                    handlePhoneChange={this.props.handlePhoneChange}
-                    name={this.props.name}
-                    email={this.props.email}
-                    phone={this.props.phone}
-                    />;
-        } else if(this.props.stage === 2) {
-            return <StageTwo 
+        switch(this.props.stage) {
+            case 1:
+                return <StageOne 
+                handleNameChange={this.props.handleNameChange}
+                handleEmailChange={this.props.handleEmailChange}
+                handlePhoneChange={this.props.handlePhoneChange}
+                name={this.props.name}
+                email={this.props.email}
+                phone={this.props.phone}
+                />;
+
+            case 2:
+                return <StageTwo 
                     handlePlanSelect={this.props.handlePlanSelect}
                     handleBillingCheckbox={this.props.handleBillingCheckbox} 
                     plan={this.props.plan}
+                    billing={this.props.billing}
                     />;
+            
+            case 3:
+                return <StageThree
+                    billing={this.props.billing}
+                    handlePickAddon={this.props.handlePickAddon}
+                     />;
+
+            case 4:
+                break;
+
+            case 5:
+                break;
+
+            default:
+                break;
         }
     }
 

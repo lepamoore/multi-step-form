@@ -13,7 +13,10 @@ class App extends React.Component {
       phone: '',
       plan: '',
       price: 200,
-      billing: 'Monthly'
+      billing: 'Monthly',
+      onlineService: false,
+      largerStorage: false,
+      customProfile: false
   };
 
   this.increaseStage = this.increaseStage.bind(this);
@@ -28,6 +31,7 @@ class App extends React.Component {
   this.onlyLettersAndSpaces = this.onlyLettersAndSpaces.bind(this);
   this.onlyEmail = this.onlyEmail.bind(this);
   this.onlyPhone = this.onlyPhone.bind(this);
+  this.handlePickAddon = this.handlePickAddon.bind(this);
   }
   
   detectStage() {
@@ -185,7 +189,10 @@ class App extends React.Component {
         }
         break;
       case 2:
-
+        if(this.state.plan) {
+          this.setState({...this.state, stage: (this.state.stage + 1)});
+          setTimeout(this.detectStage, 100);
+        }
         break;
       case 3:
 
@@ -206,9 +213,6 @@ class App extends React.Component {
   }
 
   decreaseStage() {
-    let name = this.state.name;
-    let email = this.state.email;
-    let phone = this.state.phone;
     switch(this.state.stage) {
       case 1:
         break;
@@ -218,7 +222,8 @@ class App extends React.Component {
         setTimeout(this.detectStage, 100);
         break;
       case 3:
-
+        this.setState({...this.state, stage: (this.state.stage - 1)});
+        setTimeout(this.detectStage, 100);
         break;
       case 4:
 
@@ -297,6 +302,38 @@ class App extends React.Component {
     }
   }
 
+  handlePickAddon(event) {
+    if(event.target.checked) {
+      if(event.target.id.includes('One')) {
+        document.getElementById('addonOne').style.borderColor = '#483EFF';
+        document.getElementById('addonOne').style.backgroundColor = '#F8F9FF';
+        this.setState({...this.state, onlineService: true});
+      } else if(event.target.id.includes('Two')) {
+        document.getElementById('addonTwo').style.borderColor = '#483EFF';
+        document.getElementById('addonTwo').style.backgroundColor = '#F8F9FF';
+        this.setState({...this.state, largerStorage: true});
+      } else if(event.target.id.includes('Three')) {
+        document.getElementById('addonThree').style.borderColor = '#483EFF';
+        document.getElementById('addonThree').style.backgroundColor = '#F8F9FF';
+        this.setState({...this.state, customProfile: true});
+      }
+    } else if(!event.target.checked) {
+      if(event.target.id.includes('One')) {
+        document.getElementById('addonOne').style.borderColor = '#D6D9E6';
+        document.getElementById('addonOne').style.backgroundColor = '#FFF';
+        this.setState({...this.state, onlineService: false});
+      } else if(event.target.id.includes('Two')) {
+        document.getElementById('addonTwo').style.borderColor = '#D6D9E6';
+        document.getElementById('addonTwo').style.backgroundColor = '#FFF';
+        this.setState({...this.state, largerStorage: false});
+      } else if(event.target.id.includes('Three')) {
+        document.getElementById('addonThree').style.borderColor = '#D6D9E6';
+        document.getElementById('addonThree').style.backgroundColor = '#FFF';
+        this.setState({...this.state, customProfile: false});
+      }
+    }
+  }
+
 
   render() {
     return <Background
@@ -312,6 +349,8 @@ class App extends React.Component {
              name={this.state.name}
              email={this.state.email}
              phone={this.state.phone}
+             billing={this.state.billing}
+             handlePickAddon={this.handlePickAddon}
              />;
   }
 }

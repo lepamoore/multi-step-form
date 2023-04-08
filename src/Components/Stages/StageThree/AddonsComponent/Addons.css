@@ -1,0 +1,85 @@
+.AddonName {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #022959;
+    margin: 1rem 0 .25rem 0;
+}
+
+.AddonParagraph {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #9699AA;
+    margin: .25rem 0 1rem 0;
+}
+
+.AddonsPrice {
+    font-family: Ubuntu;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: right;
+    color: #483EFF;
+    margin: 0 .5rem;
+}
+
+.AddonsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border: 1px solid #D6D9E6;
+    border-radius: 8px;
+    transition: all .25s ;
+}
+
+.AddonsTextContainer {
+    width: 80%;
+    margin-left: .25rem;
+}
+
+.AddonsDetailsContainer {
+    display: inline-block;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.AddonsPriceDiv {
+    display: inline-block;
+    margin-right: .5rem;
+}
+
+.AddonsCheck {
+	-webkit-appearance: none;
+	background-color: #FFF;
+	border: 1px solid #D6D9E6;
+    padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+    margin: auto .75rem;
+    max-height: 20px;
+    max-width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AddonsCheck:checked {
+	background-color: #483EFF;
+	border: 1px solid #483EFF;
+	color: #FFF;
+}
+
+.AddonsCheck:checked:after {
+	content: url(../../../../assets/images/icon-checkmark.svg);
+	font-size: 14px;
+	position: static;
+	color: #FFF;
+}

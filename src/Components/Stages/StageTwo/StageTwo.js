@@ -12,6 +12,7 @@ class StageTwo extends React.Component {
         this.AdvancedBgColor = this.AdvancedBgColor.bind(this);
         this.ProBorderColor = this.ProBorderColor.bind(this);
         this.ProBgColor = this.ProBgColor.bind(this);
+        this.saveBilling = this.saveBilling.bind(this);
     }
 
     ArcadeBorderColor() {
@@ -62,6 +63,14 @@ class StageTwo extends React.Component {
         }
     }
 
+    saveBilling() {
+        if(this.props.billing === 'Yearly') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     render() {
         return (
             <div id="StageTwoWrapper">
@@ -88,7 +97,7 @@ class StageTwo extends React.Component {
                 <div id="chooseLength">
                     <span id="chooseMonthly">Monthly</span>
                     <label className="switch">
-                        <input type="checkbox" onChange={this.props.handleBillingCheckbox}/>
+                        <input type="checkbox" onChange={this.props.handleBillingCheckbox} id='billingCheckbox' checked={this.saveBilling()}/>
                         <span className="slider round"></span>
                     </label>
                     <span id="chooseYearly">Yearly</span>
