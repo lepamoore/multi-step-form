@@ -32,6 +32,12 @@ class App extends React.Component {
   this.onlyEmail = this.onlyEmail.bind(this);
   this.onlyPhone = this.onlyPhone.bind(this);
   this.handlePickAddon = this.handlePickAddon.bind(this);
+  this.activateNextStep = this.activateNextStep.bind(this);
+  this.StageFourButtonCountdown = this.StageFourButtonCountdown.bind(this);
+  this.displayFinishingAddons = this.displayFinishingAddons.bind(this);
+  this.handleBackToStageTwo = this.handleBackToStageTwo.bind(this);
+  this.colorAddonWithActiveState = this.colorAddonWithActiveState.bind(this);
+  this.clearAllIntervals = this.clearAllIntervals.bind(this);
   }
   
   detectStage() {
@@ -63,6 +69,9 @@ class App extends React.Component {
         document.getElementById('stageFourBanner').style.backgroundColor = 'transparent';
         document.getElementById('stageFourBanner').style.borderColor = '#FFF';
         document.getElementById('stageFourBanner').style.color = '#FFF';
+        this.clearAllIntervals();
+        document.getElementById("BotbarButtonNext").innerHTML = "Next Step";
+        document.getElementById("BotbarButtonNext").style.backgroundColor = "#022959";
       break;
       case 3:
         document.getElementById('stageOneBanner').style.backgroundColor = 'transparent';
@@ -77,6 +86,10 @@ class App extends React.Component {
         document.getElementById('stageFourBanner').style.backgroundColor = 'transparent';
         document.getElementById('stageFourBanner').style.borderColor = '#FFF';
         document.getElementById('stageFourBanner').style.color = '#FFF';
+        this.colorAddonWithActiveState();
+        this.clearAllIntervals();
+        document.getElementById("BotbarButtonNext").innerHTML = "Next Step";
+        document.getElementById("BotbarButtonNext").style.backgroundColor = "#022959"; 
       break;
       case 4:
         document.getElementById('stageOneBanner').style.backgroundColor = 'transparent';
@@ -91,6 +104,7 @@ class App extends React.Component {
         document.getElementById('stageFourBanner').style.backgroundColor = '#BEE2FD';
         document.getElementById('stageFourBanner').style.borderColor = '#BEE2FD';
         document.getElementById('stageFourBanner').style.color = '#022959';
+        this.displayFinishingAddons();
       break;
       case 5:
         document.getElementById('stageOneBanner').style.backgroundColor = 'transparent';
@@ -186,6 +200,9 @@ class App extends React.Component {
         if(name && this.onlyLettersAndSpaces(name) && name.includes(' ') && email && this.onlyEmail(email) && phone && this.onlyPhone(phone)) {
           this.setState({...this.state, stage: (this.state.stage + 1)});
           setTimeout(this.detectStage, 100);
+          if(!this.state.plan) {
+          document.getElementById('BotbarButtonNext').style.backgroundColor = '#9699AA';
+          }
         }
         break;
       case 2:
@@ -195,7 +212,11 @@ class App extends React.Component {
         }
         break;
       case 3:
-
+        document.getElementById('BotbarButtonNext').style.backgroundColor = "#9699AA";
+        document.getElementById('BotbarButtonNext').innerHTML = "5";
+        this.setState({...this.state, stage: (this.state.stage + 1)});
+        setTimeout(this.detectStage, 100);
+        this.StageFourButtonCountdown();
         break;
       case 4:
 
@@ -226,7 +247,8 @@ class App extends React.Component {
         setTimeout(this.detectStage, 100);
         break;
       case 4:
-
+        this.setState({...this.state, stage: (this.state.stage - 1)});
+        setTimeout(this.detectStage, 100);
         break;
       case 5:
 
@@ -242,18 +264,22 @@ class App extends React.Component {
 
   handleNameChange(event) {
     this.setState({...this.state, name: event.target.value});
+    this.activateNextStep();
   }
 
   handleEmailChange(event) {
     this.setState({...this.state, email: event.target.value});
+    this.activateNextStep();
   }
 
   handlePhoneChange(event) {
     this.setState({...this.state, phone: event.target.value});
+    this.activateNextStep();
   }
 
   handlePlanSelect(event) {
       this.setState({...this.state, plan: (event.target.id)});
+      document.getElementById('BotbarButtonNext').style.backgroundColor = '#022959';
   }
 
   opacityOn() {
@@ -334,6 +360,74 @@ class App extends React.Component {
     }
   }
 
+  colorAddonWithActiveState() {
+    if(this.state.onlineService) {
+      document.getElementById('addonOne').style.borderColor = '#483EFF';
+      document.getElementById('addonOne').style.backgroundColor = '#F8F9FF';
+    } 
+    if(this.state.largerStorage) {
+      document.getElementById('addonTwo').style.borderColor = '#483EFF';
+      document.getElementById('addonTwo').style.backgroundColor = '#F8F9FF';
+    }
+    if(this.state.customProfile) {
+      document.getElementById('addonThree').style.borderColor = '#483EFF';
+      document.getElementById('addonThree').style.backgroundColor = '#F8F9FF';
+    }
+  }
+
+  activateNextStep() {
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let phone = document.getElementById('phone').value;
+      if(name && this.onlyLettersAndSpaces(name) && name.includes(' ') && email && this.onlyEmail(email) && phone && this.onlyPhone(phone)) {
+        document.getElementById('BotbarButtonNext').style.backgroundColor = '#022959';
+      }
+
+  }
+
+  StageFourButtonCountdown() {
+    let timeleft = 5;
+    const downloadTimer = setInterval(function(){
+      if(timeleft <= 0){
+        clearInterval(downloadTimer);
+        document.getElementById("BotbarButtonNext").innerHTML = "Confirm";
+        document.getElementById("BotbarButtonNext").style.backgroundColor = "#483EFF";
+      } else {
+        document.getElementById("BotbarButtonNext").innerHTML = timeleft;
+      }
+      timeleft -= 1;
+    }, 1000);
+  }
+
+  displayFinishingAddons() {
+    if(this.state.onlineService || this.state.largerStorage || this.state.customProfile) {
+      document.getElementById('StageFourPlanDiv').style.borderColor = '#9699AA';
+    }
+    if(this.state.onlineService) {
+      document.getElementById('FinishingAddonOne').style.display = 'block';
+    }
+    if(this.state.largerStorage) {
+      document.getElementById('FinishingAddonTwo').style.display = 'block';
+    }
+    if(this.state.customProfile) {
+      document.getElementById('FinishingAddonThree').style.display = 'block';
+    }
+  }
+
+  handleBackToStageTwo() {
+    this.setState({...this.state, stage: 2});
+    setTimeout(this.detectStage, 100);
+  }
+
+  clearAllIntervals() {
+    // Get a reference to the last interval + 1
+    const interval_id = window.setInterval(function(){}, Number.MAX_SAFE_INTEGER);
+
+    // Clear any timeout/interval up to that id
+    for (let i = 1; i < interval_id; i++) {
+      window.clearInterval(i);
+    }
+  }
 
   render() {
     return <Background
@@ -351,6 +445,10 @@ class App extends React.Component {
              phone={this.state.phone}
              billing={this.state.billing}
              handlePickAddon={this.handlePickAddon}
+             onlineService={this.state.onlineService}
+             largerStorage={this.state.largerStorage}
+             customProfile={this.state.customProfile}
+             handleBackToStageTwo={this.handleBackToStageTwo}
              />;
   }
 }

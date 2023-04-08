@@ -7,8 +7,8 @@ class StageThree extends React.Component {
     render() {
         return (
             <div id="StageThreeWrapper">
-                <h1 id="StageThreeHeading">Select your plan</h1>
-                <p id="StageThreeParagraph">You have the option of monthly or yearly billing.</p>
+                <h1 id="StageThreeHeading">Pick add-ons</h1>
+                <p id="StageThreeParagraph">Add-ons help enhance your gaming experience.</p>
                 
                 <Addons
                 billing={this.props.billing}
@@ -17,6 +17,7 @@ class StageThree extends React.Component {
                 AddonsParagraph='Access to multiplayer games'
                 id='addonOne'
                 handlePickAddon={this.props.handlePickAddon}
+                addonStatus={this.props.onlineService}
                 />
 
                 <Addons
@@ -26,6 +27,7 @@ class StageThree extends React.Component {
                 AddonsParagraph='Extra 1TB of cloud save'
                 id="addonTwo"
                 handlePickAddon={this.props.handlePickAddon}
+                addonStatus={this.props.largerStorage}
                 />
 
                 <Addons
@@ -35,6 +37,7 @@ class StageThree extends React.Component {
                 AddonsParagraph='Custom theme on your profile'
                 id='addonThree'
                 handlePickAddon={this.props.handlePickAddon}
+                addonStatus={this.props.customProfile}
                 />
 
             </div>

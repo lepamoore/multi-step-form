@@ -5,6 +5,7 @@ import Botbar from "../Botbar/Botbar";
 import StageOne from "../Stages/StageOne/StageOne";
 import StageTwo from '../Stages/StageTwo/StageTwo';
 import StageThree from "../Stages/StageThree/StageThree";
+import StageFour from '../Stages/StageFour/StageFour';
 
 class Background extends React.Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class Background extends React.Component {
     stageToRender() {
         switch(this.props.stage) {
             case 1:
-                return <StageOne 
+                return  <StageOne 
                 handleNameChange={this.props.handleNameChange}
                 handleEmailChange={this.props.handleEmailChange}
                 handlePhoneChange={this.props.handlePhoneChange}
@@ -40,10 +41,20 @@ class Background extends React.Component {
                 return <StageThree
                     billing={this.props.billing}
                     handlePickAddon={this.props.handlePickAddon}
+                    onlineService={this.props.onlineService}
+                    largerStorage={this.props.largerStorage}
+                    customProfile={this.props.customProfile}
                      />;
 
             case 4:
-                break;
+                return <StageFour
+                        billing={this.props.billing} 
+                        plan={this.props.plan}
+                        onlineService={this.props.onlineService}
+                        largerStorage={this.props.largerStorage}
+                        customProfile={this.props.customProfile}
+                        handleBackToStageTwo={this.props.handleBackToStageTwo}
+                        />;
 
             case 5:
                 break;

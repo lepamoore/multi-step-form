@@ -18,9 +18,9 @@ class Addons extends React.Component {
 
     render() {
         return (
-            <div className="AddonsWrapper" id={this.props.id}>
+                <div className="AddonsWrapper" id={this.props.id}>
                     <div className="AddonsDetailsContainer">
-                        <input type='checkbox' className='AddonsCheck' id={`${this.props.id}Checkbox`} onClick={this.props.handlePickAddon}></input>
+                        <input type='checkbox' className='AddonsCheck' id={`${this.props.id}Checkbox`} onClick={this.props.handlePickAddon} defaultChecked={this.props.addonStatus}></input>
                         <div className="AddonsTextContainer">
                             <h2 className="AddonName">{this.props.AddonsHeading}</h2>
                             <p className="AddonParagraph">{this.props.AddonsParagraph}</p>
