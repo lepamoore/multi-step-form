@@ -12,11 +12,11 @@ class App extends React.Component {
       email: '',
       phone: '',
       plan: '',
-      price: 200,
       billing: 'Monthly',
       onlineService: false,
       largerStorage: false,
-      customProfile: false
+      customProfile: false,
+      countdownDidRun: false
   };
 
   this.increaseStage = this.increaseStage.bind(this);
@@ -38,6 +38,7 @@ class App extends React.Component {
   this.handleBackToStageTwo = this.handleBackToStageTwo.bind(this);
   this.colorAddonWithActiveState = this.colorAddonWithActiveState.bind(this);
   this.clearAllIntervals = this.clearAllIntervals.bind(this);
+  this.setCountDownDidRun = this.setCountDownDidRun.bind(this);
   }
   
   detectStage() {
@@ -214,12 +215,17 @@ class App extends React.Component {
       case 3:
         document.getElementById('BotbarButtonNext').style.backgroundColor = "#9699AA";
         document.getElementById('BotbarButtonNext').innerHTML = "5";
-        this.setState({...this.state, stage: (this.state.stage + 1)});
+        this.setState({...this.state, stage: (this.state.stage + 1), countdownDidRun: false});
         setTimeout(this.detectStage, 100);
         this.StageFourButtonCountdown();
+
         break;
       case 4:
-
+        if(this.state.countdownDidRun) {
+          this.setState({...this.state, stage: (this.state.stage + 1)});
+          document.getElementById('BotbarWrapper').style.display = 'none';
+          setTimeout(this.detectStage, 100);
+        }
         break;
       case 5:
 
@@ -385,6 +391,10 @@ class App extends React.Component {
 
   }
 
+  setCountDownDidRun() {
+    this.setState({...this.state, countdownDidRun: true});
+  }
+
   StageFourButtonCountdown() {
     let timeleft = 5;
     const downloadTimer = setInterval(function(){
@@ -392,11 +402,12 @@ class App extends React.Component {
         clearInterval(downloadTimer);
         document.getElementById("BotbarButtonNext").innerHTML = "Confirm";
         document.getElementById("BotbarButtonNext").style.backgroundColor = "#483EFF";
+        this.setCountDownDidRun();
       } else {
         document.getElementById("BotbarButtonNext").innerHTML = timeleft;
       }
       timeleft -= 1;
-    }, 1000);
+    }.bind(this), 1000);
   }
 
   displayFinishingAddons() {

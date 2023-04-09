@@ -6,6 +6,7 @@ import StageOne from "../Stages/StageOne/StageOne";
 import StageTwo from '../Stages/StageTwo/StageTwo';
 import StageThree from "../Stages/StageThree/StageThree";
 import StageFour from '../Stages/StageFour/StageFour';
+import StageFive from '../Stages/StageFive/StageFive';
 
 class Background extends React.Component {
     constructor(props) {
@@ -57,7 +58,7 @@ class Background extends React.Component {
                         />;
 
             case 5:
-                break;
+                return <StageFive />;
 
             default:
                 break;
