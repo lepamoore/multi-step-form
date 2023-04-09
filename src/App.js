@@ -16,7 +16,8 @@ class App extends React.Component {
       onlineService: false,
       largerStorage: false,
       customProfile: false,
-      countdownDidRun: false
+      countdownDidRun: false,
+      countdownDidStart: false
   };
 
   this.increaseStage = this.increaseStage.bind(this);
@@ -39,6 +40,7 @@ class App extends React.Component {
   this.colorAddonWithActiveState = this.colorAddonWithActiveState.bind(this);
   this.clearAllIntervals = this.clearAllIntervals.bind(this);
   this.setCountDownDidRun = this.setCountDownDidRun.bind(this);
+  this.setCountDownDidStart = this.setCountDownDidStart.bind(this);
   }
   
   detectStage() {
@@ -70,9 +72,12 @@ class App extends React.Component {
         document.getElementById('stageFourBanner').style.backgroundColor = 'transparent';
         document.getElementById('stageFourBanner').style.borderColor = '#FFF';
         document.getElementById('stageFourBanner').style.color = '#FFF';
+        if(this.state.countdownDidStart) {
         this.clearAllIntervals();
         document.getElementById("BotbarButtonNext").innerHTML = "Next Step";
         document.getElementById("BotbarButtonNext").style.backgroundColor = "#022959";
+        this.setState({...this.state, countdownDidStart: false});
+        }
       break;
       case 3:
         document.getElementById('stageOneBanner').style.backgroundColor = 'transparent';
@@ -88,9 +93,12 @@ class App extends React.Component {
         document.getElementById('stageFourBanner').style.borderColor = '#FFF';
         document.getElementById('stageFourBanner').style.color = '#FFF';
         this.colorAddonWithActiveState();
+        if(this.state.countdownDidStart) {
         this.clearAllIntervals();
         document.getElementById("BotbarButtonNext").innerHTML = "Next Step";
-        document.getElementById("BotbarButtonNext").style.backgroundColor = "#022959"; 
+        document.getElementById("BotbarButtonNext").style.backgroundColor = "#022959";
+        this.setState({...this.state, countdownDidStart: false});
+        } 
       break;
       case 4:
         document.getElementById('stageOneBanner').style.backgroundColor = 'transparent';
@@ -106,6 +114,7 @@ class App extends React.Component {
         document.getElementById('stageFourBanner').style.borderColor = '#BEE2FD';
         document.getElementById('stageFourBanner').style.color = '#022959';
         this.displayFinishingAddons();
+        this.setState({...this.state, countdownDidStart: true});
       break;
       case 5:
         document.getElementById('stageOneBanner').style.backgroundColor = 'transparent';
@@ -218,9 +227,9 @@ class App extends React.Component {
         this.setState({...this.state, stage: (this.state.stage + 1), countdownDidRun: false});
         setTimeout(this.detectStage, 100);
         this.StageFourButtonCountdown();
-
         break;
       case 4:
+        document.getElementById('BotbarButtonNext').style.backgroundColor = "#9699AA";
         if(this.state.countdownDidRun) {
           this.setState({...this.state, stage: (this.state.stage + 1)});
           document.getElementById('BotbarWrapper').style.display = 'none';
@@ -394,6 +403,11 @@ class App extends React.Component {
   setCountDownDidRun() {
     this.setState({...this.state, countdownDidRun: true});
   }
+
+  setCountDownDidStart() {
+    this.setState({...this.state,  countdownDidStart: true});
+  }
+  
 
   StageFourButtonCountdown() {
     let timeleft = 5;
