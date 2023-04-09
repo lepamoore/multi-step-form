@@ -28,6 +28,7 @@ class Background extends React.Component {
                 name={this.props.name}
                 email={this.props.email}
                 phone={this.props.phone}
+                formValidation={this.props.formValidation}
                 />;
 
             case 2:

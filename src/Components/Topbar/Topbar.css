@@ -1,5 +1,5 @@
 #TopbarWrapper {
-    height: 25vh;
+    height: 25%;
     min-height: 166.75px;
     background-image: url(../../assets/images/bg-sidebar-mobile.svg);
     background-size: cover;
@@ -10,7 +10,7 @@
 
 #container {
     display: flex;
-    height: 15vh;
+    height: 60%;
     min-height: 100.05px;
     width: 50%;
     align-items: center;
@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 14px;
+    font-size: 0.865rem;
     font-weight: 700;
     transition: all 1s;
 }

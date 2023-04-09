@@ -4,7 +4,7 @@
     background-color: #FFF;
     width: 90%;
     position: absolute;
-    top: 15vh;
+    top: 15%;
     left: 50%;
     transform: translateX(-50%);
     -webkit-box-shadow: 0px 10px 70px -40px rgba(0,0,0,0.50);
@@ -20,7 +20,7 @@
 }
 
 #StageFourHeading {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #022959;
     margin-top: 2rem;
@@ -28,9 +28,8 @@
 }
 
 #StageFourParagraph {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 25px;
     color: #9699AA;
     margin-bottom: 1.5rem;
     margin-top: 0;
@@ -61,7 +60,7 @@
 .StageFourAddonDiv {
     margin: 0 1rem;
     padding: 1rem 0 0 0;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     color: #9699AA;
 }
@@ -91,7 +90,7 @@
 }
 
 .StageFourAddonPrice {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     color: #022959;
     padding: 0;
@@ -102,7 +101,7 @@
 
 
 #StageFourPlanTitle {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 500;
     color: #022959;
     margin: 0;
@@ -110,7 +109,7 @@
 }
 
 #StageFourChangeLink {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     color: #9699AA;
     text-decoration: underline;
@@ -121,7 +120,7 @@
 }
 
 #StageFourPlanPrice {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     color: #022959;
 }
@@ -135,13 +134,13 @@
 }
 
 #TotalText {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     color: #9699AA;
 }
 
 #TotalPrice {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
     color: #483EFF;
 }

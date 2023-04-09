@@ -41,6 +41,7 @@ class App extends React.Component {
   this.clearAllIntervals = this.clearAllIntervals.bind(this);
   this.setCountDownDidRun = this.setCountDownDidRun.bind(this);
   this.setCountDownDidStart = this.setCountDownDidStart.bind(this);
+  this.formValidation = this.formValidation.bind(this);
   }
   
   detectStage() {
@@ -163,50 +164,7 @@ class App extends React.Component {
         document.getElementById('name').defaultValue = name;
         document.getElementById('email').defaultValue = email;
         document.getElementById('phone').defaultValue = phone;
-
-        if(!name || !this.onlyLettersAndSpaces(name) || !name.includes(' ')) {
-          if(!name) {
-            document.getElementById('nameError').innerHTML = 'This field cannot be empty.';
-          } else if(!name.includes(' ')) {
-            document.getElementById('nameError').innerHTML = 'Please enter your full name.';
-          } else if(!this.onlyLettersAndSpaces(name)) {
-            document.getElementById('nameError').innerHTML = 'Please only use letters and spaces.';
-          }
-          document.getElementById('name').style.borderColor = '#EE374A';
-          document.getElementById('nameError').style.display = 'block';
-        } else if(!email || !this.onlyEmail(email)) {
-          if(!email) {
-            document.getElementById('emailError').innerHTML = 'This field cannot be empty.';
-          } else if(!this.onlyEmail(email)) {
-            document.getElementById('emailError').innerHTML = 'Please enter a valid Email Adress.';
-          }
-          document.getElementById('email').style.borderColor = '#EE374A';
-          document.getElementById('emailError').style.display = 'block';
-        } else if(!phone || !this.onlyPhone(phone)) {
-          if(!phone) {
-            document.getElementById('phoneError').innerHTML = 'This field cannot be empty.';
-          } else if(!this.onlyPhone(phone)) {
-            document.getElementById('phoneError').innerHTML = 'Please enter a valid Phonenumber.';
-          }
-          document.getElementById('phone').style.borderColor = '#EE374A';
-          document.getElementById('phoneError').style.display = 'block';
-        }
-
-        if(name && this.onlyLettersAndSpaces(name) && name.includes(' ')) {
-          document.getElementById('name').style.borderColor = '#D6D9E6';
-          document.getElementById('nameError').style.display = 'none';
-        }
-
-        if(email && this.onlyEmail(email)) {
-          document.getElementById('email').style.borderColor = '#D6D9E6';
-          document.getElementById('emailError').style.display = 'none';
-        }
-
-        if(phone && this.onlyPhone(phone)) {
-          document.getElementById('phone').style.borderColor = '#D6D9E6';
-          document.getElementById('phoneError').style.display = 'none';
-        }
-
+        this.formValidation();
         if(name && this.onlyLettersAndSpaces(name) && name.includes(' ') && email && this.onlyEmail(email) && phone && this.onlyPhone(phone)) {
           this.setState({...this.state, stage: (this.state.stage + 1)});
           setTimeout(this.detectStage, 100);
@@ -277,6 +235,55 @@ class App extends React.Component {
     //}
   }
 
+  formValidation() {
+    let name = this.state.name;
+    let email = this.state.email;
+    let phone = this.state.phone;
+
+        if(!name || !this.onlyLettersAndSpaces(name) || !name.includes(' ')) {
+          if(!name) {
+            document.getElementById('nameError').innerHTML = 'This field cannot be empty.';
+          } else if(!name.includes(' ')) {
+            document.getElementById('nameError').innerHTML = 'Please enter your full name.';
+          } else if(!this.onlyLettersAndSpaces(name)) {
+            document.getElementById('nameError').innerHTML = 'Please only use letters and spaces.';
+          }
+          document.getElementById('name').style.borderColor = '#EE374A';
+          document.getElementById('nameError').style.display = 'block';
+        } else if(!email || !this.onlyEmail(email)) {
+          if(!email) {
+            document.getElementById('emailError').innerHTML = 'This field cannot be empty.';
+          } else if(!this.onlyEmail(email)) {
+            document.getElementById('emailError').innerHTML = 'Please enter a valid Email Adress.';
+          }
+          document.getElementById('email').style.borderColor = '#EE374A';
+          document.getElementById('emailError').style.display = 'block';
+        } else if(!phone || !this.onlyPhone(phone)) {
+          if(!phone) {
+            document.getElementById('phoneError').innerHTML = 'This field cannot be empty.';
+          } else if(!this.onlyPhone(phone)) {
+            document.getElementById('phoneError').innerHTML = 'Please enter a valid Phonenumber.';
+          }
+          document.getElementById('phone').style.borderColor = '#EE374A';
+          document.getElementById('phoneError').style.display = 'block';
+        }
+
+        if(name && this.onlyLettersAndSpaces(name) && name.includes(' ')) {
+          document.getElementById('name').style.borderColor = '#D6D9E6';
+          document.getElementById('nameError').style.display = 'none';
+        }
+
+        if(email && this.onlyEmail(email)) {
+          document.getElementById('email').style.borderColor = '#D6D9E6';
+          document.getElementById('emailError').style.display = 'none';
+        }
+
+        if(phone && this.onlyPhone(phone)) {
+          document.getElementById('phone').style.borderColor = '#D6D9E6';
+          document.getElementById('phoneError').style.display = 'none';
+        }
+  }
+
   handleNameChange(event) {
     this.setState({...this.state, name: event.target.value});
     this.activateNextStep();
@@ -307,9 +314,9 @@ class App extends React.Component {
     if(event.target.checked) {
       document.getElementById('chooseMonthly').style.color = '#9699AA';
       document.getElementById('chooseYearly').style.color = '#022959';
-      document.getElementById('Arcade').style.maxHeight = '11.5vh';
-      document.getElementById('Advanced').style.maxHeight = '11.5vh';
-      document.getElementById('Pro').style.maxHeight = '11.5vh';
+      document.getElementById('Arcade').style.maxHeight = '11.5%';
+      document.getElementById('Advanced').style.maxHeight = '11.5%';
+      document.getElementById('Pro').style.maxHeight = '11.5%';
       document.getElementById('ArcadeGhostDiv').style.display = 'block';
       document.getElementById('AdvancedGhostDiv').style.display = 'block';
       document.getElementById('ProGhostDiv').style.display = 'block';
@@ -324,9 +331,9 @@ class App extends React.Component {
     } else {
       document.getElementById('chooseMonthly').style.color = '#022959';
       document.getElementById('chooseYearly').style.color = '#9699AA';
-      document.getElementById('Arcade').style.maxHeight = '9.5vh';
-      document.getElementById('Advanced').style.maxHeight = '9.5vh';
-      document.getElementById('Pro').style.maxHeight = '9.5vh';
+      document.getElementById('Arcade').style.maxHeight = '9.5%';
+      document.getElementById('Advanced').style.maxHeight = '9.5%';
+      document.getElementById('Pro').style.maxHeight = '9.5%';
       document.getElementById('ArcadeFreeMonths').style.opacity = '0';
       document.getElementById('AdvancedFreeMonths').style.opacity = '0';
       document.getElementById('ProFreeMonths').style.opacity = '0';
@@ -454,6 +461,8 @@ class App extends React.Component {
     }
   }
 
+  
+
   render() {
     return <Background
              increaseStage={this.increaseStage}
@@ -474,6 +483,7 @@ class App extends React.Component {
              largerStorage={this.state.largerStorage}
              customProfile={this.state.customProfile}
              handleBackToStageTwo={this.handleBackToStageTwo}
+             formValidation={this.formValidation}
              />;
   }
 }

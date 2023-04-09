@@ -4,7 +4,7 @@
     background-color: #FFF;
     width: 90%;
     position: absolute;
-    top: 15vh;
+    top: 15%;
     left: 50%;
     transform: translateX(-50%);
     -webkit-box-shadow: 0px 10px 70px -40px rgba(0,0,0,0.50);
@@ -19,7 +19,7 @@
 }
 
 #StageTwoHeading {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #022959;
     margin-top: 2rem;
@@ -27,16 +27,16 @@
 }
 
 #StageTwoParagraph {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 25px;
     color: #9699AA;
     margin-bottom: 1.5rem;
     margin-top: 0;
 }
 
 #chooseLength {
-    height: 7vh;
+    min-height: 5%;
+    padding: .6rem 0;
     border-radius: 8px ;
     background-color: #F8F9FF;
     display: flex;
@@ -48,13 +48,13 @@
 #chooseMonthly {
     color: #022959;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 #chooseYearly {
     color: #9699AA;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 /* The switch - the box around the slider */

@@ -1,5 +1,5 @@
 #BotbarWrapper {
-    height: 11vh;
+    height: 11%;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -15,7 +15,7 @@
     background-color: transparent;
     padding: 0 1rem;
     color: #9699AA;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 500;
     transition: all 1s;
 }
@@ -29,8 +29,6 @@
     background-color: #D6D9E6;
     color: #FFF;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.875rem;
     transition: all 1s;
 }
-
-/*  BEE2FD 022959  D6D9E6 */

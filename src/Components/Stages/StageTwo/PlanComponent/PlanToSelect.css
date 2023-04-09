@@ -1,5 +1,5 @@
 .PlanToSelectWrapper {
-    max-height: 9.5vh; /* 12vh when yearly  */
+    max-height: 9.5%; /* 11.5% when yearly  */
     border: 1px solid #D6D9E6;
     border-radius: 8px;
     display: flex;
@@ -11,7 +11,7 @@
 
 .planName {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1rem;
     color: #022959;
     transition: all 1s;
     margin: 0;
@@ -19,9 +19,9 @@
 
 .planPrice {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #9699AA;
-    margin: 5px 0 0 0;
+    margin: 0.3125rem 0 0 0;
     transition: all 1s;
 }
 
@@ -32,7 +32,7 @@
 .freeMonths {
     color: #022959;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.75rem;
     opacity: 0;
     visibility: hidden;
     transition: all .5s;
