@@ -7,13 +7,16 @@
     background-color: #EFF5FF;
 }
 
+#StageBotbarWrapper {
+    height: 100%;
+}
+
 @media screen and (min-width: 1023.5px) {
     #BackgroundWrapper {
         height: 600px;
         width: 940px;
         min-height: 600px;
         min-width: 940px;
-
         background-color: #FFF;
         display: flex;
         align-items: center;

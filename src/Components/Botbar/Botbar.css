@@ -21,7 +21,7 @@
 }
 
 #BotbarButtonNext {
-    width: 5.875rem;
+    min-width: 5.875rem;
     height: 2.5rem;
     margin: 1rem;
     border: none;

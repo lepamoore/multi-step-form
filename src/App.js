@@ -43,7 +43,8 @@ class App extends React.Component {
   this.setCountDownDidRun = this.setCountDownDidRun.bind(this);
   this.setCountDownDidStart = this.setCountDownDidStart.bind(this);
   this.formValidation = this.formValidation.bind(this);
-  this.mediaQuery = this.mediaQuery.bind(this);                                                                             
+  this.mediaQuery = this.mediaQuery.bind(this);    
+  this.listenBillingCheckbox = this.listenBillingCheckbox.bind(this);                                                                         
   }
   
   detectStage() {
@@ -76,6 +77,7 @@ class App extends React.Component {
         document.getElementById('stageFourBanner').style.backgroundColor = 'transparent';
         document.getElementById('stageFourBanner').style.borderColor = '#FFF';
         document.getElementById('stageFourBanner').style.color = '#FFF';
+        this.listenBillingCheckbox();
         if(this.state.countdownDidStart) {
         this.clearAllIntervals();
         document.getElementById("BotbarButtonNext").innerHTML = "Next Step";
@@ -315,6 +317,58 @@ class App extends React.Component {
 
   handleBillingCheckbox(event) {
     if(event.target.checked) {
+      document.getElementById('chooseMonthly').style.color = '#9699AA';
+      document.getElementById('chooseYearly').style.color = '#022959';
+      if(!this.state.desktop) {
+        document.getElementById('Arcade').style.maxHeight = '11.5%';
+        document.getElementById('Advanced').style.maxHeight = '11.5%';
+        document.getElementById('Pro').style.maxHeight = '11.5%';
+      } else {
+        document.getElementById('Arcade').style.maxHeight = '23%';
+        document.getElementById('Advanced').style.maxHeight = '23%';
+        document.getElementById('Pro').style.maxHeight = '23%';
+      }
+      document.getElementById('ArcadeGhostDiv').style.display = 'block';
+      document.getElementById('AdvancedGhostDiv').style.display = 'block';
+      document.getElementById('ProGhostDiv').style.display = 'block';
+      document.getElementById('ArcadeFreeMonths').style.visibility = 'visible';
+      document.getElementById('AdvancedFreeMonths').style.visibility = 'visible';
+      document.getElementById('ProFreeMonths').style.visibility = 'visible';
+      document.getElementById('ArcadePrice').innerHTML = '$90/yr';
+      document.getElementById('AdvancedPrice').innerHTML = '$120/yr';
+      document.getElementById('ProPrice').innerHTML = '$150/yr';
+      setTimeout(this.opacityOn, 100);
+      this.setState({...this.state, billing: 'Yearly'});
+    } else {
+      document.getElementById('chooseMonthly').style.color = '#022959';
+      document.getElementById('chooseYearly').style.color = '#9699AA';
+      if(!this.state.desktop) {
+        document.getElementById('Arcade').style.maxHeight = '9.5%';
+        document.getElementById('Advanced').style.maxHeight = '9.5%';
+        document.getElementById('Pro').style.maxHeight = '9.5%';
+      } else {
+        document.getElementById('Arcade').style.maxHeight = '19%';
+        document.getElementById('Advanced').style.maxHeight = '19%';
+        document.getElementById('Pro').style.maxHeight = '19%';
+      }
+      document.getElementById('ArcadeFreeMonths').style.opacity = '0';
+      document.getElementById('AdvancedFreeMonths').style.opacity = '0';
+      document.getElementById('ProFreeMonths').style.opacity = '0';
+      document.getElementById('ArcadeFreeMonths').style.visibility = 'hidden';
+      document.getElementById('AdvancedFreeMonths').style.visibility = 'hidden';
+      document.getElementById('ProFreeMonths').style.visibility = 'hidden';
+      document.getElementById('ArcadeGhostDiv').style.display = 'none';
+      document.getElementById('AdvancedGhostDiv').style.display = 'none';
+      document.getElementById('ProGhostDiv').style.display = 'none';
+      document.getElementById('ArcadePrice').innerHTML = '$9/mo';
+      document.getElementById('AdvancedPrice').innerHTML = '$12/mo';
+      document.getElementById('ProPrice').innerHTML = '$15/mo';
+      this.setState({...this.state, billing: 'Monthly'});
+    }
+  }
+
+  listenBillingCheckbox() {
+    if(document.getElementById('billingCheckbox').checked) {
       document.getElementById('chooseMonthly').style.color = '#9699AA';
       document.getElementById('chooseYearly').style.color = '#022959';
       if(!this.state.desktop) {

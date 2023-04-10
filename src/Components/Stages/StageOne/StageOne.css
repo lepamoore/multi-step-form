@@ -21,6 +21,7 @@ input, label {
     width: 85%;
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
 }
 
 #StageOneWrapper form * {
@@ -50,7 +51,6 @@ input, label {
 }
 
 .StageOneinputs {
-
     height: 2.5rem;
     padding: 0 1rem;
     font-size: 0.9375rem;
@@ -75,6 +75,8 @@ form:last-child {
     font-size: 0.75rem;
     display: none;
 }
+
+
 
 @media screen and (min-width: 1023.5px) {
     #StageOneWrapper {
