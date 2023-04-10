@@ -43,7 +43,6 @@
 
 @media screen and (min-width: 1023.5px) {
     #TopbarWrapper {
-        border: 1px solid orange;
         width: 274px;
         height: 568px;
         display: inline-block;
