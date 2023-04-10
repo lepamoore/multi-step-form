@@ -7,6 +7,7 @@ input, label {
     border-radius: 10px;
     background-color: #FFF;
     width: 90%;
+    max-width: 500px;
     position: absolute;
     top: 15%;
     left: 50%;
@@ -50,7 +51,7 @@ input, label {
 
 .StageOneinputs {
 
-    height: 40px;
+    height: 2.5rem;
     padding: 0 1rem;
     font-size: 0.9375rem;
     font-weight: 500;
@@ -73,4 +74,24 @@ form:last-child {
     color: #EE374A;
     font-size: 0.75rem;
     display: none;
+}
+
+@media screen and (min-width: 1023.5px) {
+    #StageOneWrapper {
+        position: static;
+        transform: translateX(0%);
+        display: block;
+        width: 75%;
+        max-width: none;
+        margin: auto;
+        box-shadow: none;
+    }
+
+    .StageOneinputs {
+        border-radius: 8px;
+    }
+
+    #StageOneParagraph {
+        margin-bottom: 2rem;
+    }
 }

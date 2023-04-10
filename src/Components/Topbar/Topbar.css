@@ -36,3 +36,62 @@
     border: 1px solid #BEE2FD;
     color: #022959;
 }
+
+.TopbarTextDivs {
+    display: none;
+}
+
+@media screen and (min-width: 1023.5px) {
+    #TopbarWrapper {
+        border: 1px solid orange;
+        width: 274px;
+        height: 568px;
+        display: inline-block;
+        background-image: url(../../assets/images/bg-sidebar-desktop.svg);
+        border-radius: 8px;
+
+    }
+
+    #container {
+        display: block;
+        height: 60%;
+        min-height: 100.05px;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .numberDiv {
+        display: inline-flex;
+    }
+
+    .TopbarTextDivs {
+        width: 60%;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .stepParagraph {
+        color: #ABBCFF;
+        font-size: 0.75rem;
+        padding: 0;
+        margin: 0 0 0.25rem 0;
+    }
+
+    .stepTitle {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: #FFF;
+        padding: 0;
+        margin: 0;
+    }
+
+    .TopbarAlignDiv {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+        margin: 2rem;
+    }
+}

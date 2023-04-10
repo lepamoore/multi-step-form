@@ -76,6 +76,7 @@ class StageTwo extends React.Component {
             <div id="StageTwoWrapper">
                 <h1 id="StageTwoHeading">Select your plan</h1>
                 <p id="StageTwoParagraph">You have the option of monthly or yearly billing.</p>
+                <div>
                 <PlanToSelect 
                 planHeading='Arcade' 
                 planPrice='9'
@@ -94,6 +95,7 @@ class StageTwo extends React.Component {
                 handlePlanSelect={this.props.handlePlanSelect}
                 bgColor={this.ProBgColor()}
                 brColor={this.ProBorderColor()} ></PlanToSelect>
+                </div>
                 <div id="chooseLength">
                     <span id="chooseMonthly">Monthly</span>
                     <label className="switch">

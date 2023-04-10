@@ -17,7 +17,8 @@ class App extends React.Component {
       largerStorage: false,
       customProfile: false,
       countdownDidRun: false,
-      countdownDidStart: false
+      countdownDidStart: false,
+      desktop: false
   };
 
   this.increaseStage = this.increaseStage.bind(this);
@@ -42,11 +43,13 @@ class App extends React.Component {
   this.setCountDownDidRun = this.setCountDownDidRun.bind(this);
   this.setCountDownDidStart = this.setCountDownDidStart.bind(this);
   this.formValidation = this.formValidation.bind(this);
+  this.mediaQuery = this.mediaQuery.bind(this);                                                                             
   }
   
   detectStage() {
     switch(this.state.stage) {
       case 1:
+      console.log('done');
       document.getElementById('stageOneBanner').style.backgroundColor = '#BEE2FD';
       document.getElementById('stageOneBanner').style.borderColor = '#BEE2FD';
       document.getElementById('stageOneBanner').style.color = '#022959';
@@ -314,9 +317,15 @@ class App extends React.Component {
     if(event.target.checked) {
       document.getElementById('chooseMonthly').style.color = '#9699AA';
       document.getElementById('chooseYearly').style.color = '#022959';
-      document.getElementById('Arcade').style.maxHeight = '11.5%';
-      document.getElementById('Advanced').style.maxHeight = '11.5%';
-      document.getElementById('Pro').style.maxHeight = '11.5%';
+      if(!this.state.desktop) {
+        document.getElementById('Arcade').style.maxHeight = '11.5%';
+        document.getElementById('Advanced').style.maxHeight = '11.5%';
+        document.getElementById('Pro').style.maxHeight = '11.5%';
+      } else {
+        document.getElementById('Arcade').style.maxHeight = '23%';
+        document.getElementById('Advanced').style.maxHeight = '23%';
+        document.getElementById('Pro').style.maxHeight = '23%';
+      }
       document.getElementById('ArcadeGhostDiv').style.display = 'block';
       document.getElementById('AdvancedGhostDiv').style.display = 'block';
       document.getElementById('ProGhostDiv').style.display = 'block';
@@ -331,9 +340,15 @@ class App extends React.Component {
     } else {
       document.getElementById('chooseMonthly').style.color = '#022959';
       document.getElementById('chooseYearly').style.color = '#9699AA';
-      document.getElementById('Arcade').style.maxHeight = '9.5%';
-      document.getElementById('Advanced').style.maxHeight = '9.5%';
-      document.getElementById('Pro').style.maxHeight = '9.5%';
+      if(!this.state.desktop) {
+        document.getElementById('Arcade').style.maxHeight = '9.5%';
+        document.getElementById('Advanced').style.maxHeight = '9.5%';
+        document.getElementById('Pro').style.maxHeight = '9.5%';
+      } else {
+        document.getElementById('Arcade').style.maxHeight = '19%';
+        document.getElementById('Advanced').style.maxHeight = '19%';
+        document.getElementById('Pro').style.maxHeight = '19%';
+      }
       document.getElementById('ArcadeFreeMonths').style.opacity = '0';
       document.getElementById('AdvancedFreeMonths').style.opacity = '0';
       document.getElementById('ProFreeMonths').style.opacity = '0';
@@ -417,7 +432,7 @@ class App extends React.Component {
   
 
   StageFourButtonCountdown() {
-    let timeleft = 5;
+    let timeleft = 4;
     const downloadTimer = setInterval(function(){
       if(timeleft <= 0){
         clearInterval(downloadTimer);
@@ -461,7 +476,19 @@ class App extends React.Component {
     }
   }
 
-  
+  mediaQuery(x) {
+    if (x.matches) { // If media query matches
+      this.setState({...this.state, desktop: true});
+    } else {
+      this.setState({...this.state, desktop: false});
+    }
+  }
+
+  componentDidMount() {
+    const x = window.matchMedia("(min-width: 1023.5px)");
+    this.mediaQuery(x); // Call listener function at run time
+    x.addEventListener('change', this.mediaQuery) // Attach listener function on state changes
+  }
 
   render() {
     return <Background

@@ -9,6 +9,10 @@
     transition: all 1s;
 }
 
+.PlanToSelectWrapper:hover {
+    cursor: pointer;
+}
+
 .planName {
     font-weight: 500;
     font-size: 1rem;
@@ -48,4 +52,34 @@
 
 .allDetailsContainer {
     margin: .75rem 0;
+}
+
+@media screen and (min-width: 1023.5px) {
+    .PlanToSelectWrapper {
+        max-height: 19%; /* 23% when yearly all times two when desktop true */
+        width: 31.6666%;
+        border: 1px solid #D6D9E6;
+        border-radius: 8px;
+        display: inline-block;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 1rem;
+        transition: all 1s;
+    }
+
+    #Arcade {
+        margin-right: 2.5%;
+    }
+
+    #Advanced {
+        margin-right: 2.5%;
+    }
+
+    .allDetailsContainer {
+        margin: 1rem;
+    }
+
+    #chooseLength {
+        margin-top: 2rem;
+    }
 }

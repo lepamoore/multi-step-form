@@ -3,6 +3,7 @@
     border-radius: 10px;
     background-color: #FFF;
     width: 90%;
+    max-width: 500px;
     position: absolute;
     top: 15%;
     left: 50%;
@@ -119,6 +120,11 @@
     cursor: pointer;
 }
 
+#StageFourChangeLink:hover {
+    color: #483EFF;
+    transition: all 1s;
+}
+
 #StageFourPlanPrice {
     font-size: 0.875rem;
     font-weight: 700;
@@ -143,4 +149,21 @@
     font-size: 1rem;
     font-weight: 700;
     color: #483EFF;
+}
+
+@media screen and (min-width: 1023.5px) {
+    #StageFourWrapper {
+        position: static;
+        transform: translateX(0%);
+        display: block;
+        width: 75%;
+        max-width: none;
+        margin: auto;
+        box-shadow: none;
+    }
+
+    #StageFourParagraph {
+        margin-bottom: 2rem;
+    }
+
 }

@@ -10,7 +10,7 @@
 }
 
 #BotbarButtonBack {
-    height: 56%;
+    height: 2.5rem;
     border: none;
     background-color: transparent;
     padding: 0 1rem;
@@ -21,8 +21,8 @@
 }
 
 #BotbarButtonNext {
-    width: 94px;
-    height: 40px;
+    width: 5.875rem;
+    height: 2.5rem;
     margin: 1rem;
     border: none;
     border-radius: 5px;
@@ -31,4 +31,30 @@
     font-weight: 500;
     font-size: 0.875rem;
     transition: all 1s;
+}
+
+#BotbarButtonNext:hover {
+    cursor: pointer;
+}
+
+#BotbarButtonBack:hover {
+    cursor: pointer;
+    color: #022959;
+}
+
+
+
+@media screen and (min-width: 1023.5px) {
+    #BotbarWrapper {
+        position: absolute;
+        bottom: 0px;
+        display: flex;
+        width: 75%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #BotbarButtonNext {
+        margin: 1rem 7.5% 1rem 1rem;
+        border-radius: 8px;
+    }
 }

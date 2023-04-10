@@ -3,6 +3,7 @@
     border-radius: 10px;
     background-color: #FFF;
     width: 90%;
+    max-width: 500px;
     position: absolute;
     top: 15%;
     left: 50%;
@@ -119,3 +120,19 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+  @media screen and (min-width: 1023.5px) {
+    #StageTwoWrapper {
+        position: static;
+        transform: translateX(0%);
+        display: block;
+        width: 75%;
+        max-width: none;
+        margin: auto;
+        box-shadow: none;
+    }
+
+    #StageTwoParagraph {
+      margin-bottom: 2rem;
+  }
+}

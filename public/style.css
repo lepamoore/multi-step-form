@@ -10,14 +10,37 @@ body, * {
 body, html {
     padding: 0;
     margin: 0;
+/*    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;*/
 }
 
 html {
     width: 100%;
     height: 100%;
     font-size: 14px;
+    background-color: #EFF5FF;
     }
   
   body {
     height: 100%;
     }
+
+@media screen and (min-width:766.5px) and (max-width:1023.49px) {
+    html {
+        font-size: 21px;
+    }
+}
+
+@media screen and (min-width: 1023.5px) {
+    html {
+        /*font-size: 17.5px;*/
+        font-size: 16px;
+    }
+
+    #root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

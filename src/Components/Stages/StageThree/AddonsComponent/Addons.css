@@ -66,6 +66,10 @@
     justify-content: center;
 }
 
+.AddonsCheck:hover {
+    cursor: pointer;
+}
+
 .AddonsCheck:checked {
 	background-color: #483EFF;
 	border: 1px solid #483EFF;

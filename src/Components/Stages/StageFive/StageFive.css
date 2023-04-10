@@ -3,6 +3,7 @@
     border-radius: 10px;
     background-color: #FFF;
     width: 90%;
+    max-width: 500px;
     position: absolute;
     top: 15%;
     left: 50%;
@@ -40,4 +41,20 @@
     margin-top: 4rem;
     margin-bottom: 0;
     padding: 0;
+}
+
+@media screen and (min-width: 1023.5px) {
+    #StageFiveWrapper {
+
+        box-shadow: none;
+    }
+
+    #StageFiveHeading {
+        margin-bottom: 1rem;
+    }
+
+    #StageFiveParagraph {
+        line-height: 140%;
+    }
+
 }

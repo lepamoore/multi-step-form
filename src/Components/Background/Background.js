@@ -78,12 +78,14 @@ class Background extends React.Component {
         return(
             <div id="BackgroundWrapper">
                 <Topbar />
-                {this.stageToRender()}
-                <Botbar 
-                increaseStage={this.props.increaseStage}
-                decreaseStage={this.props.decreaseStage}
-                prevButtonVisible={this.prevButtonVisible()}
-                />
+                <div id="StageBotbarWrapper">
+                    {this.stageToRender()}
+                    <Botbar 
+                    increaseStage={this.props.increaseStage}
+                    decreaseStage={this.props.decreaseStage}
+                    prevButtonVisible={this.prevButtonVisible()}
+                    />
+                </div>
             </div>
         );
     }
