@@ -1,6 +1,6 @@
 #TopbarWrapper {
-    height: 25%;
-    min-height: 166.75px;
+    height: 200.1px;
+    /*min-height: 166.75px;*/
     background-image: url(../../assets/images/bg-sidebar-mobile.svg);
     background-size: cover;
     background-repeat: no-repeat;

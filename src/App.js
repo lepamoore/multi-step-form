@@ -505,13 +505,16 @@ class App extends React.Component {
       document.getElementById('StageFourPlanDiv').style.borderColor = '#9699AA';
     }
     if(this.state.onlineService) {
-      document.getElementById('FinishingAddonOne').style.display = 'block';
+      document.getElementById('FinishingAddonOne').style.height = '25px';
+      document.getElementById('FinishingAddonOne').style.marginTop = '.5rem';
     }
     if(this.state.largerStorage) {
-      document.getElementById('FinishingAddonTwo').style.display = 'block';
+      document.getElementById('FinishingAddonTwo').style.height = '25px';
+      document.getElementById('FinishingAddonTwo').style.marginTop = '.5rem';
     }
     if(this.state.customProfile) {
-      document.getElementById('FinishingAddonThree').style.display = 'block';
+      document.getElementById('FinishingAddonThree').style.height = '25px';
+      document.getElementById('FinishingAddonThree').style.marginTop = '.5rem';
     }
   }
 

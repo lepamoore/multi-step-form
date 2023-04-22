@@ -1,3 +1,7 @@
+* {
+    transition: all .5s;
+}
+
 #StageFourWrapper {
     min-height: 25%;
     border-radius: 10px;
@@ -5,7 +9,7 @@
     width: 90%;
     max-width: 500px;
     position: absolute;
-    top: 15%;
+    top: 133.4px;
     left: 50%;
     transform: translateX(-50%);
     -webkit-box-shadow: 0px 10px 70px -40px rgba(0,0,0,0.50);
@@ -60,7 +64,7 @@
 
 .StageFourAddonDiv {
     margin: 0 1rem;
-    padding: 1rem 0 0 0;
+    padding:0;
     font-size: 0.875rem;
     font-weight: 400;
     color: #9699AA;
@@ -74,15 +78,33 @@
 
 
 #FinishingAddonOne {
-    display: none;
+    height: 0px;
+    line-height: 0px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #FinishingAddonTwo {
-    display: none;
+    height: 0px;
+    line-height: 0px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #FinishingAddonThree {
-    display: none;
+    height: 0px;
+    line-height: 0px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #StageFourAddonsDiv{
@@ -95,9 +117,9 @@
     font-weight: 400;
     color: #022959;
     padding: 0;
-    margin: 0 2.7rem 0 0;
-    position: absolute;
-    right: 0;
+    min-width: 1px;
+    /*position: absolute;
+    right: 0;*/
 }
 
 
